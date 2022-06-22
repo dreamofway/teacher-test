@@ -143,9 +143,9 @@ export default ()=>{
             result_arr[idx] = test_points[idx] + test_points[(idx + term_val)] + test_points[(idx + (term_val * 2))] + test_points[(idx + (term_val * 3))];
 
             rank_set : for (const rank in rank_arr) {
-                console.log(idx);
+                // console.log(idx);
                 if( rank_arr[rank].length == 0 ) {
-                    console.log('init', idx);
+                    // console.log('init', idx);
                     rank_arr[rank].push({
                         idx: idx,
                         point: result_arr[idx],
@@ -162,7 +162,7 @@ export default ()=>{
                         }
 
                         if(rank_arr[rank][rank_item]['point'] == result_arr[idx] ){
-                            console.log('같다', idx);
+                            // console.log('같다', idx);
                             rank_arr[rank].push({
                                 idx: idx,
                                 point: result_arr[idx],
@@ -183,7 +183,7 @@ export default ()=>{
             }
         }
 
-        console.log(path_arr.join('/'));
+        // console.log(path_arr.join('/'));
         router.push('/result/'+path_arr.join('/'));
 
     }
