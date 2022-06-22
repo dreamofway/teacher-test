@@ -112,7 +112,7 @@ function Layout(props) {
 			<Head>
 				<title>은사테스트|강남성서침례교회</title>
 				<meta name="description" content={content} />
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" href="/favicon-114x114.png" />
 			</Head>
 			<Header navItems={navItems} ></Header>
 

@@ -1,10 +1,9 @@
 import {useTheme, Container, Card, Grid, Button, Row, Text, Spacer, Radio} from "@nextui-org/react";
 import {SSRProvider} from '@react-aria/ssr';
-import RadioComponent from '../ui/components/radio';
-import {useRouter} from 'next/router'
+import RadioComponent from '../../ui/components/radio';
 
 export default ()=>{
-    const router = useRouter();
+
     let test_points = [];
 
     function AddAsks() {
@@ -128,64 +127,18 @@ export default ()=>{
     function doneTest(){
         let term_val = 25;
         let result_arr = [];
-        let rank_arr = {
-            'r1': [],
-            'r2': [],
-            'r3': [],
-        };
 
         for(let idx = 1; idx <= term_val; idx++) {
-            // console.log(test_points[idx]
-            //     , test_points[(idx + term_val)]
-            //     , test_points[(idx + (term_val * 2))]
-            //     , test_points[(idx + (term_val * 3))]
-            // );
+            console.log(test_points[idx]
+                , test_points[(idx + term_val)]
+                , test_points[(idx + (term_val * 2))]
+                , test_points[(idx + (term_val * 3))]
+            );
             result_arr[idx] = test_points[idx] + test_points[(idx + term_val)] + test_points[(idx + (term_val * 2))] + test_points[(idx + (term_val * 3))];
 
-            rank_set : for (const rank in rank_arr) {
-                console.log(idx);
-                if( rank_arr[rank].length == 0 ) {
-                    console.log('init', idx);
-                    rank_arr[rank].push({
-                        idx: idx,
-                        point: result_arr[idx],
-                    });
-                    break rank_set;
-                } else {
-                    for(const rank_item in rank_arr[rank]) {
-                        if(rank_arr[rank][rank_item]['point'] < result_arr[idx] ){
-                            rank_arr[rank][rank_item] = {
-                                idx: idx,
-                                point: result_arr[idx],
-                            };
-                            break rank_set;
-                        }
-
-                        if(rank_arr[rank][rank_item]['point'] == result_arr[idx] ){
-                            console.log('같다', idx);
-                            rank_arr[rank].push({
-                                idx: idx,
-                                point: result_arr[idx],
-                            });
-                            break rank_set;
-                        }
-                    }
-                }
-            }
         }
 
-        // console.log(result_arr);
-        // console.log(rank_arr);
-        let path_arr = [];
-        rank_loop : for (const rank in rank_arr) {
-            for(const rank_item in rank_arr[rank]) {
-               path_arr.push( rank_arr[rank][rank_item].idx+'-'+rank_arr[rank][rank_item].point );
-            }
-        }
-
-        console.log(path_arr.join('/'));
-        router.push('/result/'+path_arr.join('/'));
-
+        console.log(result_arr);
     }
 
 
