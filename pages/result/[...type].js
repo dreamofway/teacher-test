@@ -3,7 +3,7 @@ import {SSRProvider} from '@react-aria/ssr';
 import React, { useState, useRef, useEffect } from "react";
 import {useRouter} from "next/router";
 
-export default ()=>{
+function ResultHandler(){
     const router = useRouter();    
     let [list, setList] = useState([]);
     const teacher_types = {
@@ -93,3 +93,5 @@ export default ()=>{
         </div>
     )
 }
+ResultHandler.displayName = "결과화면";
+export default ResultHandler;

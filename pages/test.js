@@ -3,7 +3,7 @@ import {SSRProvider} from '@react-aria/ssr';
 import RadioComponent from '../ui/components/radio';
 import {useRouter} from 'next/router'
 
-export default ()=>{
+function TestHandler() {
     const router = useRouter();
     let test_points = [];
 
@@ -230,3 +230,6 @@ export default ()=>{
         </div>
     )
 }
+
+TestHandler.displayName = "테스트화면";
+export default TestHandler;
