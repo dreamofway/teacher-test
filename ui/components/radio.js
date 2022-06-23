@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Radio } from "@nextui-org/react";
 
-export default function App({number, SetSelectVal}) {
+export default function App({number, SetSelectVal, defaultVal}) {
 
     function selectedEvent(param_val) {
         SetSelectVal(number, param_val);
     }
 
     return (
-        <Radio.Group key={'radio_GR_'+number} label="선택 하세요" defaultValue="3"  onChange={selectedEvent}   >
+        <Radio.Group key={'radio_GR_'+number} label="선택 하세요" defaultValue={defaultVal}  onChange={selectedEvent}   >
             <Radio id={number+'3'} value="3" color="primary" labelColor="primary" size="xs" >
                 매우 그렇다(3)
             </Radio>
